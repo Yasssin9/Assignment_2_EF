@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Assignment__2__EF.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,23 +39,24 @@ namespace Assignment_2_EntityFramework.Model
 
             //TableStud_Course
 
-            modelBuilder.Entity<Stud_Course>().HasKey(x => new { x.Stud_Id, x.Course_Id });
-            modelBuilder.Entity<Stud_Course>().Property(x => x.Grade);
+            modelBuilder.Entity<StudentCourse>().HasKey(x => new { x.StudentId, x.CourseId });
+            modelBuilder.Entity<StudentCourse>().Property(x => x.Grade);
 
 
             //TableCourse_Inst
 
-            modelBuilder.Entity<Course_Inst>().HasKey(x => new { x.Inst_Id, x.Course_Id });
-            modelBuilder.Entity<Course_Inst>().Property(x=>x.Evaluate);
+            modelBuilder.Entity<CourseInstructor>().HasKey(x => new { x.CourseId, x.InstructorId });
+            modelBuilder.Entity<CourseInstructor>().Property(x=>x.Evaluate);
 
         }
 
         public DbSet<Course> Courses { get; set; }
         public DbSet<Student> Students { get; set; }
-        public DbSet<Stud_Course> Stud_Courses { get; set; }
+        public DbSet<StudentCourse> StudentCourse { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Topic> Topic { get; set; }
-        public DbSet<Course_Inst> Course_Inst { get; set; }
+
+        public DbSet<CourseInstructor> CourseInstructor { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
 
 

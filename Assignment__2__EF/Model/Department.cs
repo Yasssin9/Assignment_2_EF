@@ -12,5 +12,9 @@ namespace Assignment_2_EntityFramework.Model
         public string? Name { get; set; }
         public int Ins_Id { get; set; }
         public DateTime HiringDate { get; set; }
+
+        public ICollection<Student> Student { get; set; }
+
+        public ICollection<Instructor> Instructor { get; set; }
     }
 }
